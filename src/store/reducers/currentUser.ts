@@ -1,18 +1,9 @@
-import { SetCurrentUserAction } from "store/actions/currentUser";
 import { SET_CURRENT_USER } from "store/definitions";
+import { CurrentUserState,CurrentUserAction } from "store/types";
 
 
-export interface CurrentUser{
-    id?:string | null
-    fullName:string | null
-    username: string | null
-    position: string | null
-    image: string | null
-}
 
-export type CurrentUserAction = SetCurrentUserAction;
-
-const initialState ={
+const initialState:CurrentUserState ={
   fullName: null,
   username: null,
   position: null,
@@ -20,7 +11,7 @@ const initialState ={
   id:null
 };
 
-export default function currentUserReducer(state = initialState, action:CurrentUserAction) {
+export default function currentUserReducer(state = initialState, action:CurrentUserAction): CurrentUserState {
   switch (action.type) {
     case SET_CURRENT_USER:
       const { id, fullName, username, position, image } = action.payload;

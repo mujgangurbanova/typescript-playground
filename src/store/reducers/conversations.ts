@@ -1,13 +1,13 @@
-import { AddNewConversationAction,SetConversationsAction ,RemoveConversationAction} from "store/actions/conversations";
+import { ConversationsAction, ConversationsState } from "store/types";
 import {
     ADD_NEW_CONVERSATION,
     REMOVE_CONVERSATION,
     SET_CONVERSATIONS,
   } from "store/definitions";
 
-  export type ConversationAction = AddNewConversationAction | RemoveConversationAction | SetConversationsAction
+  const initialState:ConversationsState = []
   
-  export default function conversationsReducer(state = [], action:ConversationAction) {
+  export default function conversationsReducer(state = initialState, action:ConversationsAction):ConversationsState {
     switch (action.type) {
       case ADD_NEW_CONVERSATION:
         const user = action.payload;

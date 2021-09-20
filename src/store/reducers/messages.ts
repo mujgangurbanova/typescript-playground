@@ -3,24 +3,15 @@ import {
     SEND_MESSAGE,
     SET_USER_MESSAGES,
 } from "store/definitions";
-import { ReceiveMessageAction, SendMessageAction, SetUserMessagesAction } from "store/actions/messages";
+import { MessagesAction, MessagesState } from "store/types";
 
-  export interface Message{
-      id?: string
-      content: string
-      isFromSelf:boolean
-      time?: string
-  }
-
-  export interface MessageState {
-      [key: string]:Message[]
-  }
-
-  export type MessagesAction = SendMessageAction | ReceiveMessageAction | SetUserMessagesAction
   
-  const initialState:MessageState = {};
+
   
-  export default function messagesReducer(state : MessageState = initialState, action:MessagesAction): MessageState {
+  
+  const initialState: MessagesState = {};
+  
+  export default function messagesReducer(state : MessagesState = initialState, action:MessagesAction): MessagesState {
     switch (action.type) {
       case SEND_MESSAGE: {
         const { toUserId, content } = action.payload;

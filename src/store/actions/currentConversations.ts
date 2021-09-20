@@ -1,11 +1,7 @@
 import {SET_CURRENT_CONVERSATION} from "store/definitions"
-import {CurrentConversation} from "store/reducers/currentConversations"
+import { CurrentConversation, SetCurrentConversationAction } from "store/types";
 
-export interface SetCurrentConversationAction{
-    type: 'SET_CURRENT_CONVERSATION',
-      payload:CurrentConversation
-      
-}
+
 
 export function setCurrentConversationAction(userId:CurrentConversation):SetCurrentConversationAction {
     return {

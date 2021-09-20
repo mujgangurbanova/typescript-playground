@@ -1,17 +1,12 @@
 import { SET_CURRENT_CONVERSATION } from "store/definitions";
-import {SetCurrentConversationAction} from 'store/actions/currentConversations'
+import { CurrentConversationAction, CurrentConversationState } from "store/types";
 
-export interface CurrentConversation{
-    userId: string | null
-}
 
-export type CurrentUserAction = SetCurrentConversationAction;
-
-const initialState = {
+const initialState:CurrentConversationState = {
   userId: null,
 };
 
-export default function currentConversationReducer(state = initialState,action:CurrentUserAction) {
+export default function currentConversationReducer(state = initialState,action:CurrentConversationAction):CurrentConversationState {
   switch (action.type) {
     case SET_CURRENT_CONVERSATION:
       const { userId } = action.payload;
